@@ -41,6 +41,8 @@ object DummyMarker extends Marker {
 
 class LoggerWithMarkerSpec extends WordSpec with Matchers with MockitoSugar {
 
+  import Test._
+
   // Error
 
   "Calling error with a marker and a message" should {

@@ -278,10 +278,10 @@ private object LoggerMacro {
     import c.universe._
 
     message.tree match {
-      case q"scala.StringContext.apply(..$parts).s(..$args)" =>
+      case q"Test.StringContext.apply(..$parts).s(..$args)" =>
         val format = parts.iterator.map({ case Literal(Constant(str: String)) => str })
           // Emulate standard interpolator escaping
-          .map(StringContext.treatEscapes)
+          .map(scala.StringContext.treatEscapes)
           // Escape literal slf4j format anchors if the resulting call will require a format string
           .map(str => if (args.nonEmpty) str.replace("{}", "\\{}") else str)
           .mkString("{}")

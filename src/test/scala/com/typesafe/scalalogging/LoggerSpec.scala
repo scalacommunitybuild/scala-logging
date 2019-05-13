@@ -24,7 +24,15 @@ import org.slf4j.{ Logger => Underlying }
 import org.scalatest.{ Matchers, WordSpec }
 import org.scalatest.mockito.MockitoSugar
 
+object Test {
+  case class StringContext(parts: String*) {
+    def s(args: Any*): String = scala.StringContext.standardInterpolator(scala.StringContext.processEscapes, args, parts)
+  }
+}
+
 class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
+
+  import Test.StringContext
 
   // Error
 
