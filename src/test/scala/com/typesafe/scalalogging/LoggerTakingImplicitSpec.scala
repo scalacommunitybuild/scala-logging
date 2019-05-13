@@ -60,7 +60,7 @@ class LoggerTakingImplicitSpec extends WordSpec with Matchers with MockitoSugar 
       val f = fixture(_.isErrorEnabled, isEnabled = true)
       import f._
       logger.error(msg, arg1)
-      verify(underlying).error(logMsg, List(arg1): _*)
+      verify(underlying).error(logMsg, arg1)
       logger.error(msg, arg1, arg2)
       verify(underlying).error(logMsg, List(arg1, arg2): _*)
       logger.error(msg, arg1, arg2, arg3)
@@ -133,7 +133,7 @@ class LoggerTakingImplicitSpec extends WordSpec with Matchers with MockitoSugar 
       val f = fixture(_.isWarnEnabled, isEnabled = true)
       import f._
       logger.warn(msg, arg1)
-      verify(underlying).warn(logMsg, List(arg1): _*)
+      verify(underlying).warn(logMsg, arg1)
       logger.warn(msg, arg1, arg2)
       verify(underlying).warn(logMsg, List(arg1, arg2): _*)
       logger.warn(msg, arg1, arg2, arg3)
@@ -146,7 +146,7 @@ class LoggerTakingImplicitSpec extends WordSpec with Matchers with MockitoSugar 
       val f = fixture(_.isWarnEnabled, isEnabled = false)
       import f._
       logger.warn(msg, arg1)
-      verify(underlying, never).warn(logMsg, List(arg1): _*)
+      verify(underlying, never).warn(logMsg, arg1)
       logger.warn(msg, arg1, arg2)
       verify(underlying, never).warn(logMsg, List(arg1, arg2): _*)
       logger.warn(msg, arg1, arg2, arg3)
@@ -206,7 +206,7 @@ class LoggerTakingImplicitSpec extends WordSpec with Matchers with MockitoSugar 
       val f = fixture(_.isInfoEnabled, isEnabled = true)
       import f._
       logger.info(msg, arg1)
-      verify(underlying).info(logMsg, List(arg1): _*)
+      verify(underlying).info(logMsg, arg1)
       logger.info(msg, arg1, arg2)
       verify(underlying).info(logMsg, List(arg1, arg2): _*)
       logger.info(msg, arg1, arg2, arg3)
@@ -219,7 +219,7 @@ class LoggerTakingImplicitSpec extends WordSpec with Matchers with MockitoSugar 
       val f = fixture(_.isInfoEnabled, isEnabled = false)
       import f._
       logger.info(msg, arg1)
-      verify(underlying, never).info(logMsg, List(arg1): _*)
+      verify(underlying, never).info(logMsg, arg1)
       logger.info(msg, arg1, arg2)
       verify(underlying, never).info(logMsg, List(arg1, arg2): _*)
       logger.info(msg, arg1, arg2, arg3)
@@ -279,7 +279,7 @@ class LoggerTakingImplicitSpec extends WordSpec with Matchers with MockitoSugar 
       val f = fixture(_.isDebugEnabled, isEnabled = true)
       import f._
       logger.debug(msg, arg1)
-      verify(underlying).debug(logMsg, List(arg1): _*)
+      verify(underlying).debug(logMsg, arg1)
       logger.debug(msg, arg1, arg2)
       verify(underlying).debug(logMsg, List(arg1, arg2): _*)
       logger.debug(msg, arg1, arg2, arg3)
@@ -292,7 +292,7 @@ class LoggerTakingImplicitSpec extends WordSpec with Matchers with MockitoSugar 
       val f = fixture(_.isDebugEnabled, isEnabled = false)
       import f._
       logger.debug(msg, arg1)
-      verify(underlying, never).debug(logMsg, List(arg1): _*)
+      verify(underlying, never).debug(logMsg, arg1)
       logger.debug(msg, arg1, arg2)
       verify(underlying, never).debug(logMsg, List(arg1, arg2): _*)
       logger.debug(msg, arg1, arg2, arg3)
@@ -352,7 +352,7 @@ class LoggerTakingImplicitSpec extends WordSpec with Matchers with MockitoSugar 
       val f = fixture(_.isTraceEnabled, isEnabled = true)
       import f._
       logger.trace(msg, arg1)
-      verify(underlying).trace(logMsg, List(arg1): _*)
+      verify(underlying).trace(logMsg, arg1)
       logger.trace(msg, arg1, arg2)
       verify(underlying).trace(logMsg, List(arg1, arg2): _*)
       logger.trace(msg, arg1, arg2, arg3)

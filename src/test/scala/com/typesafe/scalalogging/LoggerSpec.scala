@@ -94,7 +94,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isErrorEnabled, isEnabled = true)
       import f._
       logger.error(msg, arg1)
-      verify(underlying).error(msg, List(arg1): _*)
+      verify(underlying).error(msg, arg1)
       logger.error(msg, arg1, arg2)
       verify(underlying).error(msg, List(arg1, arg2): _*)
       logger.error(msg, arg1, arg2, arg3)
@@ -105,7 +105,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isErrorEnabled, isEnabled = false)
       import f._
       logger.error(msg, arg1)
-      verify(underlying, never).error(msg, List(arg1): _*)
+      verify(underlying, never).error(msg, arg1)
       logger.error(msg, arg1, arg2)
       verify(underlying, never).error(msg, List(arg1, arg2): _*)
       logger.error(msg, arg1, arg2, arg3)
@@ -172,7 +172,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isWarnEnabled, isEnabled = true)
       import f._
       logger.warn(msg, arg1)
-      verify(underlying).warn(msg, List(arg1): _*)
+      verify(underlying).warn(msg, arg1)
       logger.warn(msg, arg1, arg2)
       verify(underlying).warn(msg, List(arg1, arg2): _*)
       logger.warn(msg, arg1, arg2, arg3)
@@ -183,7 +183,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isWarnEnabled, isEnabled = false)
       import f._
       logger.warn(msg, arg1)
-      verify(underlying, never).warn(msg, List(arg1): _*)
+      verify(underlying, never).warn(msg, arg1)
       logger.warn(msg, arg1, arg2)
       verify(underlying, never).warn(msg, List(arg1, arg2): _*)
       logger.warn(msg, arg1, arg2, arg3)
@@ -250,7 +250,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isInfoEnabled, isEnabled = true)
       import f._
       logger.info(msg, arg1)
-      verify(underlying).info(msg, List(arg1): _*)
+      verify(underlying).info(msg, arg1)
       logger.info(msg, arg1, arg2)
       verify(underlying).info(msg, List(arg1, arg2): _*)
       logger.info(msg, arg1, arg2, arg3)
@@ -261,7 +261,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isInfoEnabled, isEnabled = false)
       import f._
       logger.info(msg, arg1)
-      verify(underlying, never).info(msg, List(arg1): _*)
+      verify(underlying, never).info(msg, arg1)
       logger.info(msg, arg1, arg2)
       verify(underlying, never).info(msg, List(arg1, arg2): _*)
       logger.info(msg, arg1, arg2, arg3)
@@ -327,7 +327,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isDebugEnabled, isEnabled = true)
       import f._
       logger.debug(msg, arg1)
-      verify(underlying).debug(msg, List(arg1): _*)
+      verify(underlying).debug(msg, arg1)
       logger.debug(msg, arg1, arg2)
       verify(underlying).debug(msg, List(arg1, arg2): _*)
       logger.debug(msg, arg1, arg2, arg3)
@@ -338,7 +338,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isDebugEnabled, isEnabled = false)
       import f._
       logger.debug(msg, arg1)
-      verify(underlying, never).debug(msg, List(arg1): _*)
+      verify(underlying, never).debug(msg, arg1)
       logger.debug(msg, arg1, arg2)
       verify(underlying, never).debug(msg, List(arg1, arg2): _*)
       logger.debug(msg, arg1, arg2, arg3)
@@ -405,7 +405,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isTraceEnabled, isEnabled = true)
       import f._
       logger.trace(msg, arg1)
-      verify(underlying).trace(msg, List(arg1): _*)
+      verify(underlying).trace(msg, arg1)
       logger.trace(msg, arg1, arg2)
       verify(underlying).trace(msg, List(arg1, arg2): _*)
       logger.trace(msg, arg1, arg2, arg3)
@@ -416,7 +416,7 @@ class LoggerSpec extends WordSpec with Matchers with MockitoSugar {
       val f = fixture(_.isTraceEnabled, isEnabled = false)
       import f._
       logger.trace(msg, arg1)
-      verify(underlying, never).trace(msg, List(arg1): _*)
+      verify(underlying, never).trace(msg, arg1)
       logger.trace(msg, arg1, arg2)
       verify(underlying, never).trace(msg, List(arg1, arg2): _*)
       logger.trace(msg, arg1, arg2, arg3)
