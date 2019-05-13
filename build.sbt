@@ -8,8 +8,13 @@ name := "scala-logging"
 licenses := Seq("Apache 2.0 License" -> url("http://www.apache.org/licenses/LICENSE-2.0.html"))
 homepage := Some(url("https://github.com/lightbend/scala-logging"))
 incOptions := incOptions.value.withLogRecompileOnMacro(false)
-scalaVersion := Version.scala
-crossScalaVersions := Version.crossScala
+
+// scalaVersion := Version.scala
+// crossScalaVersions := Version.crossScala
+scalaVersion := "2.13.0-pre-1ae9f82"
+scalaBinaryVersion := "2.13.0-RC1"
+resolvers += "scala-integration" at  "https://scala-ci.typesafe.com/artifactory/scala-integration/"
+
 scalacOptions ++= List(
   "-unchecked",
   "-deprecation",
